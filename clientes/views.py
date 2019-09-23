@@ -1,11 +1,10 @@
-from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render
-from django.http import HttpResponse, request, HttpResponseRedirect
+from django.http import HttpResponse, HttpResponseRedirect
+from django.shortcuts import render
 from django.urls import reverse, reverse_lazy
-from django.views.generic import CreateView
+from django.views.generic import CreateView, DeleteView
 
 from .forms import ClienteForm
-
 from .models import Cliente
 
 
@@ -38,3 +37,9 @@ class ClienteCreate(CreateView):
     model = Cliente
     template_name = 'cliente_form.html'
     form_class = ClienteForm
+
+
+class Clientedelete(DeleteView):
+    template_name = 'cliente_confirm_delete.html'
+    model = Cliente
+    success_url = reverse_lazy('clientes:clientes_list')

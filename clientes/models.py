@@ -3,6 +3,7 @@ from django.urls import reverse_lazy
 
 
 class Cliente(models.Model):
+    objetcs = None
     nome = models.CharField(max_length=100)
     endereco = models.TextField()
     fone = models.CharField(max_length=10)

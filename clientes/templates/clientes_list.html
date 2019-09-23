@@ -3,6 +3,11 @@
 {% block content %}
  <table class="table table-dark">
 
+  <div class="container">
+      <a href="{% url 'clientes:cliente_cadastrar' %}">
+        <button type="button" class="btn btn-success">Cadastrar</button>
+      </a>
+  </div>
   <thead>
     <tr>
         <th>Nome</th>
@@ -19,6 +24,10 @@
      <td>{{ cliente.endereco}} </td>
      <td>{{ cliente.fone}} </td>
      <td>{{ cliente.email}} </td>
+     <td><a href="{% url 'clientes:cliente_deletar' cliente.id %}">
+         <button type="button" class="btn btn-danger">Deletar</button>
+     </a>
+     </td>
     </tr>
     {% endfor %}
   </tbody>
