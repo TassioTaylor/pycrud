@@ -24,6 +24,9 @@
      <td>{{ cliente.endereco}} </td>
      <td>{{ cliente.fone}} </td>
      <td>{{ cliente.email}} </td>
+     <td><a href="{% url 'clientes:cliente_editar' cliente.id %}">
+         <button type="button" class="btn btn-primary">Editar</button>
+     </a></td>
      <td><a href="{% url 'clientes:cliente_deletar' cliente.id %}">
          <button type="button" class="btn btn-danger">Deletar</button>
      </a>

@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse, reverse_lazy
-from django.views.generic import CreateView, DeleteView
+from django.views.generic import CreateView, DeleteView, UpdateView
 
 from .forms import ClienteForm
 from .models import Cliente
@@ -39,7 +39,13 @@ class ClienteCreate(CreateView):
     form_class = ClienteForm
 
 
-class Clientedelete(DeleteView):
+class ClienteDelete(DeleteView):
     template_name = 'cliente_confirm_delete.html'
     model = Cliente
     success_url = reverse_lazy('clientes:clientes_list')
+
+
+class ClienteUpdate(UpdateView):
+    model = Cliente
+    template_name = 'cliente_form.html'
+    form_class = ClienteForm
